@@ -1,0 +1,9 @@
+thingworx:
+  build: ./
+  ports:
+    - "8888:8080"
+  volumes:
+    - ./ThingworxStorage:/ThingworxStorage
+    - ./ThingworxBackupStorage:/ThingworxBackupStorage
+  restart: always
+
