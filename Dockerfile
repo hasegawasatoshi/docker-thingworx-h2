@@ -31,7 +31,7 @@ RUN addgroup --system tomcat8 --quiet \
     && chmod 640 conf/* \
     && chown -R tomcat8:adm logs/ temp/ work/ \
     && chmod 750 logs/ temp/ work/ \
-    && echo "export JAVA_OPTS=\"-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dserver -Dd64 -XX:+UseNUMA -XX:+UseConcMarkSweepGC -Dfile.encoding=UTF-8 -Djava.library.path=./webapps/Thingworx/WEB-INF/extensions\"" > ./bin/setenv.sh \
+    && echo "export JAVA_OPTS=\"-Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Dserver -Dd64 -XX:+UseNUMA -XX:+UseG1GC -Dfile.encoding=UTF-8 -Djava.library.path=./webapps/Thingworx/WEB-INF/extensions\"" > ./bin/setenv.sh \
     && echo "export JRE_HOME=/usr/lib/jvm/java-8-oracle/jre" >> ./bin/setenv.sh \
     && sed -e 's/<Connector port="8080" protocol="HTTP\/1.1"/<Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol"/g' conf/server.xml \
     && mkdir /ThingworxStorage \
